@@ -1,0 +1,41 @@
+name: Auto Obfuscate Worker
+
+# 触发器：仅当 'worker.js' 文件在 main 分支上发生变更时运行
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'worker.js'
+
+jobs:
+  build-and-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 第 1 步：检出你的代码
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 第 2 步：设置 Node.js 环境
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 第 3 步：安装混淆工具
+      - name: Install Obfuscator
+        run: npm install -g javascript-obfuscator
+
+      # 第 4 步：执行混淆命令
+      - name: Run Obfuscation
+        run: javascript-obfuscator worker.js --output worker-new.js --rename-globals true --split-strings true --split-strings-chunk-length 2
+
+      # 第 5 步：自动提交新生成的文件
+      - name: Commit and push the new worker
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: 'worker-new.js'
+          # --- 这里是修正的地方 ---
+          message: 'Automated: Obfuscate worker.js and generate new version' 
+          push: true
