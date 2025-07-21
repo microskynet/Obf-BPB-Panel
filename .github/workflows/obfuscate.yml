@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - 'worker.js'
+  # 手动触发: 仓库的 Actions 标签页，左侧选择 Auto Obfuscate Worker，点击 "Run workflow" 按钮，可强制运行一次工作流。
+  workflow_dispatch:
 
 jobs:
   build-and-commit:
