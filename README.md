@@ -25,3 +25,33 @@ _worker.js：混淆后的个人专属 BPB 代码。
 BPB Panel 💦 的源文件及具体操作说明请访问作者仓库：
 
 https://github.com/bia-pain-bache/BPB-Worker-Panel?tab=readme-ov-file
+
+
+BPB Panel Obfuscation Code
+Unobfuscated copies of BPB or copies used by too many people can easily be detected by Cloudflare, 
+
+resulting in a 1101 error. It is not recommended to update already deployed BPB scripts unless necessary.
+
+If you want to obfuscate your own unique copy of BPB, you can take the original worker.js file, 
+
+copy or replace it in the root directory, and a new _worker.js will be generated.
+
+
+worker.js: The original author's BPB code, regardless of whether it is obfuscated or not.
+_worker.js: The obfuscated personal exclusive BPB code.
+
+
+Usage:
+Every time you update the worker.js file, it will trigger the automatic regeneration of the _worker.js file.
+
+You can also manually force the regeneration of a new file at any time by:
+
+In the repository's "Actions" tab, select "Auto Obfuscate Worker" on the left side, and on the middle-right, 
+
+you will see a "Run workflow" button.Click it, then click "main", to forcefully run the workflow once, 
+
+generating the re-obfuscated _worker.js whenever you need it.
+
+For source files and specific operation instructions for BPB Panel 💦, please visit the author's repository:
+
+https://github.com/bia-pain-bache/BPB-Worker-Panel?tab=readme-ov-file
