@@ -8,3 +8,7 @@ BPB混淆代码
 worker.js：原 BPB 代码，无论混淆与否。
 
 _worker.js：混淆后的个人专属 BPB 代码。
+
+
+BPB Panel 💦 的源文件及具体操作说明请访问作者仓库：
+https://github.com/bia-pain-bache/BPB-Worker-Panel?tab=readme-ov-file
