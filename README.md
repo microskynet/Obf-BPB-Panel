@@ -12,9 +12,13 @@ _worker.js：混淆后的个人专属 BPB 代码。
 
 
 使用方法：
+
 每次在你更新 worker.js 文件的时候，就会触发 自动重新生成 _worker.js 文件。
+
 也可以随时手动强制重新生成新文件，方法是：
+
 在仓库的 Actions 标签页，在左侧选择 Auto Obfuscate Worker，在中间偏右 会看到一个 "Run workflow" 的按钮。
+
 点击它，再点击main，就可以强制运行一次工作流，从而在你需要的时候 再生成重新混淆过的 _worker.js。
 
 
