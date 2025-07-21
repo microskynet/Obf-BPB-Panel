@@ -35,12 +35,12 @@ jobs:
 
       # 第 4 步：执行混淆命令
       - name: Run Obfuscation
-        run: javascript-obfuscator worker.js --output worker-new.js --rename-globals true --split-strings true --split-strings-chunk-length 2
+        run: javascript-obfuscator worker.js --output _worker.js --rename-globals true --split-strings true --split-strings-chunk-length 2
 
       # 第 5 步：自动提交新生成的文件
       - name: Commit and push the new worker
         uses: EndBug/add-and-commit@v9
         with:
-          add: 'worker-new.js'
+          add: '_worker.js'
           message: 'Automated: Obfuscate worker.js and generate new version'
           push: true
