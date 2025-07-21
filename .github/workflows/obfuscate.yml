@@ -1,6 +1,5 @@
 name: Auto Obfuscate Worker
 
-# 触发器：仅当 'worker.js' 文件在 main 分支上发生变更时运行
 on:
   push:
     branches:
@@ -11,6 +10,11 @@ on:
 jobs:
   build-and-commit:
     runs-on: ubuntu-latest
+
+    # --- 这是新增的关键部分 ---
+    # 明确为这个作业授予回写代码的权限
+    permissions:
+      contents: write
 
     steps:
       # 第 1 步：检出你的代码
@@ -36,6 +40,5 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           add: 'worker-new.js'
-          # --- 这里是修正的地方 ---
-          message: 'Automated: Obfuscate worker.js and generate new version' 
+          message: 'Automated: Obfuscate worker.js and generate new version'
           push: true
