@@ -13,7 +13,6 @@ jobs:
   build-and-commit:
     runs-on: ubuntu-latest
 
-    # --- 这是新增的关键部分 ---
     # 明确为这个作业授予回写代码的权限
     permissions:
       contents: write
@@ -35,7 +34,8 @@ jobs:
 
       # 第 4 步：执行混淆命令
       - name: Run Obfuscation
-        run: javascript-obfuscator worker.js --output _worker.js --rename-globals true --split-strings true --split-strings-chunk-length 2
+      # run: javascript-obfuscator worker.js --output _worker.js --rename-globals true --split-strings true --split-strings-chunk-length 2
+        run: javascript-obfuscator worker.js --output _worker.js --rename-globals true --compact true
 
       # 第 5 步：自动提交新生成的文件
       - name: Commit and push the new worker
